@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Job Portal</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between px-10 py-5 bg-black/40 backdrop-blur-lg sticky top-0 z-50">
+    <h2 class="text-xl font-bold text-blue-400">AI JobPortal</h2>
+    <div class="space-x-6">
+        <a href="#auth" class="hover:text-blue-300">Login</a>
+        <a href="#jobs" class="hover:text-blue-300">Jobs</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="h-screen flex flex-col md:flex-row items-center justify-between px-10">
+
+    <div class="max-w-xl">
+        <h1 class="text-5xl font-bold mb-4 leading-tight">
+            Find Your <span class="text-blue-400">AI Dream Job</span>
+        </h1>
+
+        <p class="mb-6 text-lg opacity-80">
+            Discover top tech companies, explore AI careers, and apply instantly.
+        </p>
+
+        <button class="btn glow px-6 py-3">Explore Jobs</button>
+    </div>
+
+    <div class="w-[500px] mt-10 md:mt-0">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200"
+             class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500">
+    </div>
+
+</section>
+
+<!-- SLIDER -->
+<section class="flex justify-center my-10">
+    <div class="w-[80%] h-[300px] overflow-hidden rounded-xl">
+        <img id="slider"
+             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200"
+             class="w-full h-full object-cover">
+    </div>
+</section>
+
+<!-- LOGIN -->
+<section id="auth" class="flex justify-center py-20">
+    <div class="glass p-8 rounded-2xl w-80 text-center">
+
+        <div class="mb-4 space-x-2">
+            <button onclick="showLogin()" class="bg-blue-500 px-3 py-1 rounded">Login</button>
+            <button onclick="showRegister()" class="bg-blue-500 px-3 py-1 rounded">Register</button>
+        </div>
+
+        <form id="loginForm">
+            <h3 class="text-xl mb-3">Login</h3>
+            <input class="w-full p-2 mb-2 rounded text-black" type="email" placeholder="Email">
+            <input class="w-full p-2 mb-2 rounded text-black" type="password" placeholder="Password">
+            <button class="btn glow w-full">Login</button>
+        </form>
+
+        <form id="registerForm" class="hidden">
+            <h3 class="text-xl mb-3">Register</h3>
+            <input class="w-full p-2 mb-2 rounded text-black" placeholder="Name">
+            <input class="w-full p-2 mb-2 rounded text-black" placeholder="Email">
+            <input class="w-full p-2 mb-2 rounded text-black" placeholder="Password">
+            <button class="btn glow w-full">Register</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- JOBS -->
+<section id="jobs" class="py-20 text-center">
+    <h2 class="text-3xl mb-10 text-blue-300">AI Jobs</h2>
+
+    <div class="flex flex-wrap justify-center gap-8">
+
+        <div class="job-card">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
+            <h3>AI Engineer</h3>
+            <p>Google</p>
+            <button onclick="applyJob('AI Engineer')" class="btn glow">Apply</button>
+        </div>
+
+        <div class="job-card">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600">
+            <h3>ML Developer</h3>
+            <p>Microsoft</p>
+            <button onclick="applyJob('ML Developer')" class="btn glow">Apply</button>
+        </div>
+
+        <div class="job-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600">
+            <h3>Data Scientist</h3>
+            <p>Amazon</p>
+            <button onclick="applyJob('Data Scientist')" class="btn glow">Apply</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- APPLY POPUP -->
+<div id="applyPopup" class="hidden fixed inset-0 bg-black/70 flex justify-center items-center">
+    <div class="bg-white text-black p-6 rounded-xl w-80 text-center">
+        <h3 id="jobTitle"></h3>
+        <input class="w-full p-2 mb-2 border rounded" placeholder="Name">
+        <input class="w-full p-2 mb-2 border rounded" placeholder="Email">
+        <button onclick="submitApplication()" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+        <button onclick="closePopup()" class="ml-2 border px-4 py-2 rounded">Close</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="mt-20 bg-black/40 backdrop-blur-lg text-white px-10 py-16">
+
+    <div class="grid md:grid-cols-4 gap-10">
+
+        <!-- BRAND -->
+        <div>
+            <h2 class="text-2xl font-bold text-blue-400 mb-4">AI JobPortal</h2>
+            <p class="opacity-70">
+                Find your dream AI & tech job with ease. Explore opportunities from top companies worldwide.
+            </p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-300">Quick Links</h3>
+            <ul class="space-y-2 opacity-80">
+                <li><a href="#jobs" class="hover:text-blue-400">Jobs</a></li>
+                <li><a href="#auth" class="hover:text-blue-400">Login</a></li>
+                <li><a href="#" class="hover:text-blue-400">About</a></li>
+                <li><a href="#" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- JOB CATEGORIES -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-300">Top Categories</h3>
+            <ul class="space-y-2 opacity-80">
+                <li>AI Engineer</li>
+                <li>Data Scientist</li>
+                <li>Frontend Developer</li>
+                <li>Cloud Engineer</li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-300">Contact</h3>
+            <p class="opacity-80">📧 support@aijobportal.com</p>
+            <p class="opacity-80">📍 India</p>
+
+            <!-- SOCIAL ICONS -->
+            <div class="flex gap-4 mt-4 text-xl">
+                <span class="hover:text-blue-400 cursor-pointer">🌐</span>
+                <span class="hover:text-blue-400 cursor-pointer">💼</span>
+                <span class="hover:text-blue-400 cursor-pointer">📱</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="border-t border-white/20 mt-10 pt-6 text-center opacity-70">
+        © 2026 AI JobPortal | All Rights Reserved
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
