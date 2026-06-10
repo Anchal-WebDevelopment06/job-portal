@@ -42,3 +42,61 @@ function slide(){
 
 setInterval(slide, 2500);
 slide();
+
+// ================= CART FEATURE =================
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(title, salary) {
+
+    let job = {
+        id: Date.now(),
+        title,
+        salary
+    };
+
+    cart.push(job);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(title + " added to cart!");
+    showCart();
+}
+
+function showCart() {
+
+    let container = document.getElementById("cartItems");
+    let total = 0;
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    cart.forEach(item => {
+
+        total += Number(item.salary);
+
+        let card = document.createElement("div");
+        card.className = "job-card";
+
+        card.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>₹${item.salary}</p>
+            <button onclick="removeFromCart(${item.id})" class="btn glow mt-2">
+                Remove
+            </button>
+        `;
+
+        container.appendChild(card);
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showCart();
+}
+
+// LOAD CART
+showCart();
