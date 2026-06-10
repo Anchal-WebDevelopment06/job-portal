@@ -18,6 +18,7 @@
     <div class="space-x-6">
         <a href="#auth" class="hover:text-blue-300">Login</a>
         <a href="#jobs" class="hover:text-blue-300">Jobs</a>
+        <a href="#cart" class="hover:text-blue-300">Cart 🛒</a>
         <a href="admin.html" class="hover:text-blue-300">Admin</a>
     </div>
 </nav>
@@ -90,21 +91,27 @@
             <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
             <h3>AI Engineer</h3>
             <p>Google</p>
+            <p class="text-yellow-300 font-bold">₹50000</p>
             <button onclick="applyJob('AI Engineer')" class="btn glow">Apply</button>
+            <button onclick="addToCart('AI Engineer',50000)" class="btn glow mt-2">Add to Cart 🛒</button>
         </div>
 
         <div class="job-card">
             <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600">
             <h3>ML Developer</h3>
             <p>Microsoft</p>
+            <p class="text-yellow-300 font-bold">₹70000</p>
             <button onclick="applyJob('ML Developer')" class="btn glow">Apply</button>
+            <button onclick="addToCart('ML Developer',70000)" class="btn glow mt-2">Add to Cart 🛒</button>
         </div>
 
         <div class="job-card">
             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600">
             <h3>Data Scientist</h3>
             <p>Amazon</p>
+            <p class="text-yellow-300 font-bold">₹90000</p>
             <button onclick="applyJob('Data Scientist')" class="btn glow">Apply</button>
+            <button onclick="addToCart('Data Scientist',90000)" class="btn glow mt-2">Add to Cart 🛒</button>
         </div>
 
     </div>
@@ -120,6 +127,18 @@
         <button onclick="closePopup()" class="ml-2 border px-4 py-2 rounded">Close</button>
     </div>
 </div>
+
+<!-- CART SECTION -->
+<section id="cart" class="py-20 text-center">
+    <h2 class="text-3xl text-blue-300 mb-10">Your Cart 🛒</h2>
+
+    <div id="cartItems" class="flex flex-wrap justify-center gap-6"></div>
+
+    <h3 class="text-2xl mt-10">
+        Total Salary: ₹<span id="total">0</span>
+    </h3>
+</section>
+
 
 <!-- FOOTER -->
 <footer class="mt-20 bg-black/40 backdrop-blur-lg text-white px-10 py-16">
